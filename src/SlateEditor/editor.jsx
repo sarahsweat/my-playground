@@ -1,12 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Editor } from 'slate-react'
+import { Value } from 'slate'
+
+import value from './value.json'
+import { plugins, renderMark } from './marks'
+
 
 class RichTextEditor extends React.Component {
+  state = {
+    value: Value.fromJSON(value),
+  }
+
+  onChange = ({ value }) => {
+    this.setState({ value })
+  }
 
   render() {
     return(
       <EditorWrapper>
-        Put editor here
+        <Editor 
+          value={this.state.value} 
+          renderMark={renderMark} 
+          onChange={this.onChange} 
+          plugins={plugins}
+        />
       </EditorWrapper>
     )
   }
