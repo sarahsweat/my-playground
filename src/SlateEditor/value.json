@@ -20,17 +20,6 @@
                 ]
               },
               {
-                "text": "italic,",
-                "marks": [
-                  {
-                    "type": "italic"
-                  }
-                ]
-              },
-              {
-                "text": " and "
-              },
-              {
                 "text": "underline",
                 "marks": [
                   {

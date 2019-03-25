@@ -2,14 +2,42 @@ import React from 'react'
 import styled from 'styled-components'
 import { Editor } from 'slate-react'
 import { Value } from 'slate'
+import Html from 'slate-html-serializer'
 
 import value from './value.json'
 import { plugins, renderMark } from './marks'
 
+const html = new Html({
+	rules: [{
+    deserialize(el, next) {
+      if (el.tagName.toLowerCase() === 'p') {
+        return {
+          kind: 'block',
+          type: 'paragraph',
+          data: {},
+          nodes: next(el.childNodes)
+        }
+      }
+      if (el.tagName.toLowerCase() === 'a') {
+        return {
+          kind: 'inline',
+          type: 'link',
+          data: {
+            href: el.getAttribute('href')
+          },
+          nodes: next(el.childNodes)
+        }
+      }
+    }
+  }]	
+})
+
+
 
 class RichTextEditor extends React.Component {
   state = {
-    value: Value.fromJSON(value),
+    value: html.deserialize(`
+    <p>A bit of content in a Slate editor.<p><p>A bit of content in a Slate editor.</p><p>abcede</p>`),
   }
 
   onChange = ({ value }) => {
@@ -17,6 +45,8 @@ class RichTextEditor extends React.Component {
   }
 
   render() {
+    console.log(this.state.value)
+    
     return(
       <EditorWrapper>
         <Editor 
