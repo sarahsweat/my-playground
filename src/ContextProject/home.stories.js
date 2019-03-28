@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { storiesOf } from '@storybook/react';
-import { Home } from './home'
+import { Component1 } from './Component1'
 
 storiesOf('Context API Project', module)
-  .add('Home', () => <Home />);
+  .add('Component1', () => <Component1 />);
