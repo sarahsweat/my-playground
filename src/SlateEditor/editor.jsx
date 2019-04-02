@@ -11,7 +11,7 @@ import {html} from './serializer'
 class RichTextEditor extends React.Component {
   state = {
     value: html.deserialize(`
-    <p>A bit of content in a Slate editor.</p><pre><code>A bit of content in a Slate editor.</code></pre><p>Googleeeeee</p>`),
+    <a href="google.com">Google Link</a><p>A bit of content in a Slate editor.</p><pre><code>A bit of content in a Slate editor.</code></pre><p>Googleeeeee</p>`),
     serializedContent: null 
   }
 

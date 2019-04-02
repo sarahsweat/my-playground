@@ -7,6 +7,7 @@
     "@storybook/react": "^5.0.2",
     "babel-loader": "^8.0.5",
     "immutable": "^4.0.0-rc.12",
+    "megadraft": "^0.6.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",

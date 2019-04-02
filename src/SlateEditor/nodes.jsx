@@ -14,8 +14,9 @@ export const renderNode = (props, editor, next) => {
           {props.children}
         </p>
       )
-    case 'quote':
-      return <blockquote {...props.attributes}>{props.children}</blockquote>
+    
+    case 'link':
+      return <a {...props.attributes}>{props.children}</a>
     default:
       return next()
   }

@@ -1,0 +1,7 @@
+.megadraft-editor .paragraph + .paragraph {
+  margin: 0px;
+}
+
+.megadraft-editor .public-DraftEditor-content figure {
+  margin: 0;
+}
