@@ -5,7 +5,9 @@
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@storybook/react": "^5.0.2",
+    "Dante2": "^0.5.0-rc4",
     "babel-loader": "^8.0.5",
+    "draft-convert": "^2.1.4",
     "immutable": "^4.0.0-rc.12",
     "megadraft": "^0.6.3",
     "react": "^16.8.4",
