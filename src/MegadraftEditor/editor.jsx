@@ -3,6 +3,7 @@ import {MegadraftEditor, editorStateFromRaw, editorStateToJSON} from "megadraft"
 import { convertToHTML } from 'draft-convert'
 require('megadraft/dist/css/megadraft.css');
 import './megadraft.css'
+import exporter from './exporter'
 
 export class Editor extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ export class Editor extends React.Component {
     const {editorState} = this.state;
     const content = editorStateToJSON(editorState);
     console.log(content);
-    const html = convertToHTML(editorState.getCurrentContent())
+    const html = exporter(editorState.getCurrentContent())
     this.setState({ html })
   }
 
@@ -36,7 +37,7 @@ export class Editor extends React.Component {
             onChange={this.onChange}
           />
         </div>
-        <button onClick={this.onSaveClick}>Click me</button>
+        <button onClick={this.onSaveClick}>Export to HTML</button>
         <div>{this.state.html && this.state.html}</div>
       </div>
     )
